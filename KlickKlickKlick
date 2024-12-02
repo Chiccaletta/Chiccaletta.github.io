@@ -1,0 +1,87 @@
+
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Klick-Klick-Klick</title>
+        
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #f0f8ff;
+                font-family: Arial, sans-serif;
+            }
+            
+            #face {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                background-color: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                transition: transform 0.2s;
+            }
+            #face:hover {
+                transform: scale(1.1);
+            }
+            
+            #message {
+                margin-top: 20px;
+                font-size: 24px;
+                color: #333
+                display: none;
+            }
+        
+        </style>
+    </head>
+
+    
+    <body>
+        
+        <div id="face" onclick="changeFace()">
+        🙂
+        </div>
+        
+        <div id="message"></div>
+        
+        
+        <script>
+            const faces = ['😁','✌🏻','❤️','😍','😘'];
+            const messages = [
+                "     Du bist stärker als du denkst. Glaube an dich!",
+                "     Jeder Schritt bringt dich näher zu deinen Zielen.",
+                "     Fehler sind nur Fehler, wenn man nicht daraus lernt!",
+                "     Nur du hast die Kraft deine Träume wahr werden zu lassen",
+                "     Sei du selbst. Wir sind alle Einzigartig und Wunderbar."
+                
+            ];
+            
+            
+            function changeFace() {
+                const faceElement = document.getElementById('face');
+                const messageElement = document.getElementById('message');
+                
+                
+                // Zufälliges Gesicht auswählen
+                const randomFaceIndex = Math.floor(Math.random() * faces.length);
+                faceElement.innerHTML = faces[randomFaceIndex];
+                
+                
+                // Zufällige Nachricht auswählen
+                const randomMessageIndex = Math.floor(Math.random() * messages.length);
+                messageElement.innerHTML = messages[randomMessageIndex];
+                messageElement.style.display = 'block';
+            }
+            
+        
+        </script>
+    
+    
+    </body>
+    </html>
